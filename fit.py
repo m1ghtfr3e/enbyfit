@@ -1,38 +1,52 @@
+import exceptions
+
 
 class Body:
 
     '''
         Body Class.
 
+    :param age: Age of the Person in years
+    :type age: int
     :param height: Height of the Person in cm
     :type height:  float
     :param weight: Weight of the Person in kg
     :type weight:  float
-    :param hormonal_sex: Hormonal Sex of a person,
-                         other "indications" of
-                         sex are not needed.
-    :type hormonal_sex: string
     '''
 
-    def __init__(self, height, weight, hormonal_sex=''):
+    def __init__(self, age, height, weight):
+        self._age = age
         self._height = height
         self._weight = weight
-        self._hormonal_sex = hormonal_sex
+
+    @property
+    def hormonal_sex(self):
+        ''' Get Hormonal Sex. '''
+        return self._hormonal_sex
+
+    @hormonal_sex.setter
+    def hormonal_sex(self, sex):
+        ''' Set Hormonal Sex. '''
+        self._hormonal_sex = sex
 
     @property
     def waist(self):
+        ''' Get Waist size. '''
         return self._waist
 
     @waist.setter
     def waist(self, waist):
+        ''' Set Waist size. '''
         self._waist = waist
 
     @property
     def hip(self):
+        ''' Get Hips size. '''
         return self._hip
 
     @hip.setter
     def hip(self, hip):
+        ''' Set Hips size. '''
         self._hip = hip
 
     @property
@@ -51,7 +65,7 @@ class Body:
         :rtype: float
 
         :Example:
-            >>> Body(120, 80).bmi
+            >>> Body(22, 120, 80).bmi
             55.6
         '''
         return float('%.1f' % (self._weight / ((self._height/100) ** 2)))
@@ -98,16 +112,47 @@ class Body:
         Benedict Formula instead.
 
         :return: Returns the Metabolic Rate
-        :rtype: integer
+        :rtype: int
         :Example:
-            >>> Body(180, 50).metabolic_rate
+            >>> Body(22, 180, 50).metabolic_rate
             1200
         '''
         return int(self._weight * 24)
 
     @property
-    def harris_benedict_formula(self):
-        pass
+    def harris_benedict_equation(self):
+        '''
+            Get the BMR based on the
+            Harris-Benedict equation
+
+        Hormonal Female:
+            BMR = 655 + (9.6 X weight in kilos)
+                + (1.8 X height in cm) – (4.7 x age in years)
+
+        Hormonal Male:
+            BMR = 66 + (13.7 x weight in kilos)
+                + (5 x height in cm) – (6.8 x age in years)
+
+        :return: Returns the Daily calory need
+        :rtype: int
+
+        if obj._hormonal_sex is not defined:
+            :raises AttributeError
+        '''
+
+        try:
+            if self._hormonal_sex == 'male':
+                return int(66 + (13.7 * self._weight) \
+                        + (5 * self._height) \
+                        - (6.8 * self._age))
+
+            elif self._hormonal_sex == 'female':
+                return int(655 + (9.6 * self._weight) \
+                        + (1.8 * self._height) \
+                        - (4.7 * self._age))
+
+        except AttributeError:
+            raise exceptions.HormonalSexNotDefined
 
     @property
     def waist2hip_ratio(self):
@@ -119,19 +164,21 @@ class Body:
         '''
         try:
             return self._waist / self._hip
+
         except AttributeError:
-            return
+            raise exceptions.WaistOrHipNotDefined
 
     def __repr__(self):
-        return f'Body(                          \
-            _height={self._height},             \
-            _weight={self._weight},             \
-            _hormonal_sex={self._hormonal_sex}  \
-            )'
+        represent = f'''Body(
+            _height={self._height},
+            _weight={self._weight},
+            )'''
+        return represent
 
     def __str__(self):
 
         represent = f'''
+        Age:                {self._age}
         Height:             {self._height}
         Weight:             {self._weight}
         Hormonal Sex:       {self._hormonal_sex}
@@ -146,6 +193,8 @@ class Body:
                             [Normal: 90-110]
 
         Metabolic Rate:     {self.metabolic_rate}
+
+        Harris-Benedict:    {self.harris_benedict_equation}
 
         Waist-to-Hip Ratio: {self.waist2hip_ratio}
         '''
@@ -184,7 +233,8 @@ if __name__ == '__main__':
     doctest.testmod()
 
     p = Person(name='Borrito', age=21)
-    b = Body(165, 48)
+    b = Body(21, 165, 48)
 
-    print(p)
+    #b._hormonal_sex = 'female'
+    b.harris_benedict_equation
     print(b)
