@@ -12,41 +12,25 @@ class Body:
     :type height:  float
     :param weight: Weight of the Person in kg
     :type weight:  float
+    :param hormonal_sex: Hormonal Sex of the Person
+    :type hormonal_sex: string
+    :param waist: Waist size of the Person in cm
+    :type waist: float
+    :param hip: Hip size of the Person in cm
+    :type hip: float
     '''
 
-    def __init__(self, age, height, weight):
+    def __init__(self, age, height, weight,
+                    hormonal_sex=None,
+                    waist=None,
+                    hip=None,
+                ):
+
         self._age = age
         self._height = height
         self._weight = weight
-
-    @property
-    def hormonal_sex(self):
-        ''' Get Hormonal Sex. '''
-        return self._hormonal_sex
-
-    @hormonal_sex.setter
-    def hormonal_sex(self, sex):
-        ''' Set Hormonal Sex. '''
-        self._hormonal_sex = sex
-
-    @property
-    def waist(self):
-        ''' Get Waist size. '''
-        return self._waist
-
-    @waist.setter
-    def waist(self, waist):
-        ''' Set Waist size. '''
+        self._hormonal_sex = hormonal_sex
         self._waist = waist
-
-    @property
-    def hip(self):
-        ''' Get Hips size. '''
-        return self._hip
-
-    @hip.setter
-    def hip(self, hip):
-        ''' Set Hips size. '''
         self._hip = hip
 
     @property
@@ -137,7 +121,7 @@ class Body:
         :rtype: int
 
         if obj._hormonal_sex is not defined:
-            :raises AttributeError
+            :raise: AttributeError
         '''
 
         try:
@@ -167,6 +151,8 @@ class Body:
 
         except AttributeError:
             raise exceptions.WaistOrHipNotDefined
+        except:
+            pass
 
     def __repr__(self):
         represent = f'''Body(
@@ -206,35 +192,63 @@ class Person:
     '''
         Person class.
 
+    The Person class is representing
+    an User and related objects like
+    Body, Sport, etc.
+
     :param name: Name of the Person
     :type name:  string
-    :param age:  Age of the Person
-    :type age:   integer
+    :param obj_names: Name of the object given
+    :type obj_names: string
+    :param obj: Objects passed
+    :type obj: class
     '''
 
-    def __init__(self, name, age):
-        self._name = name
-        self._age = age
+    def __init__(self, name, **kwargs):
+        '''
+            Constructor of Persons class
 
+        Accepting **kwargs as optional parameter,
+        classes are passed to represent on overview
+        of the Person and its related objects.
+        '''
+        self._name = name
+
+        self.__obj_names = []
+        self.__obj = []
+
+        for obj_n, obj in kwargs.items():
+            self.__obj_names.append(obj_n)
+            self.__obj.append(obj)
 
     def __repr__(self):
-        return f'Person(_name={self._name}, _age={self._age})'
+        return f'Person(_name={self._name}, __obj_names={self.__obj_names})'
 
     def __str__(self):
-        represent = f'''
-        Name:               {self._name}
-        Age:                {self._age}
         '''
+            Representation of Person
+            and passed objects.
+        '''
+
+        represent = f'Overview of {self._name}\n\n'
+        for i in range(len(self.__obj)):
+            represent += f'''
+            _____ {self.__obj_names[i]} ____
+            {self.__obj[i]}
+            '''
+
         return represent
+
 
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
+    from sports import Sport
 
-    p = Person(name='Borrito', age=21)
     b = Body(21, 165, 48)
+    s = Sport.Running(1, 2)
+    p = Person('borrito', body=b, sport=s)
 
-    #b._hormonal_sex = 'female'
-    b.harris_benedict_equation
-    print(b)
+    print(p.__repr__())
+    print(p)
