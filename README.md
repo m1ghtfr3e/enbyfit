@@ -1,2 +1,2 @@
-##fitpy
-Python Package
+Fitpy: Fitness and Health Modules for Humans
+============================================
