@@ -165,6 +165,7 @@ class Body:
 
         represent = f'''
         Age:                {self._age}
+
         Height:             {self._height}
         Weight:             {self._weight}
         Hormonal Sex:       {self._hormonal_sex}
@@ -247,7 +248,7 @@ if __name__ == '__main__':
     from sports import Sport
 
     b = Body(21, 165, 48)
-    s = Sport.Running(1, 2)
+    s = Sport.Running(b, 11, 60)
     p = Person('borrito', body=b, sport=s)
 
     print(p.__repr__())
