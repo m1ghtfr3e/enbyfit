@@ -1,64 +1,71 @@
+# sports.py
+'''
+    sports Module
 
-class Sport:
+Containing different sports and activity
+classes which provide modules.
+Most classes need the body object as
+specific attributes are often needed,
+they are set as optional parameters as
+some modules or attributes can be used
+without specific attr.
+More help is provided in each class.
+'''
+
+
+class Running:
     '''
-        Sport class
-
-    Contains classes for several activities.
-
-    :class: Running
-    :class: Walking
+        Running class
+    :param body: Instance of an object which has
+                     needed parameters
+    :type body: class: Body, optional, protected
+    :param km_run: The distance which was run in km
+    :type km_run: float, optional, private
+    :param time_sport: The duration of the activity in minutes
+    :type time_sport: int, optional , private
     '''
+    def __init__(self, body=None, km_run=0.0, time_sport=0):
+        self.__body = body
+        self._km_run = km_run
+        self._time_sport = time_sport
 
-    class Running:
+    @property
+    def calories_used(self):
         '''
-            Running class
-
-        :param body: Instance of an object which has
-                         needed parameters
-        :type body: class
-        :param km_run: The distance which was run in km
-        :type km_run: float
-        :param time_sport: The duration of the activity in minutes
-        :type time_sport: int
+        # Add Informations
         '''
-        def __init__(self, body, km_run=0.0, time_sport=0):
-            self.__body = body
-            self.km_run = km_run
-            self.time_sport = time_sport
+        return self._km_run * self.__body._weight * 0.9
 
-        def calories_used(self):
-            '''
-            # Add Informations
-            '''
-            return self.km_run * self.__body._weight * 0.9
+    @property
+    def run_pace(self):
+        '''
+        # Add Informations
+        '''
+        tmp = self._time_sport / self._km_run
+        t = tmp - int(tmp)
+        t *= 60   # to get minutes
+        pace = int(tmp) + (t - int(t))
+        return float('%.2f' % pace)
 
-        def run_pace(self):
-            '''
-            # Add Informations
-            '''
-            tmp = self.time_sport / self.km_run
-            t = tmp - int(tmp)
-            t *= 60   # to get minutes
-            pace = int(tmp) + (t - int(t))
-            return float('%.2f' % pace)
+    def asdict(self):
+        return {'km_run' : self._km_run,
+                'time_sport' : self._time_sport,
+                'used_calories' : self.calories_used,
+                'run_pace': self.run_pace}
 
-        def __str__(self):
-            return f'''
-            Kind of activity: Running
+    def __str__(self):
+        return f'''
+        Kind of activity:   Running
 
-            Duration: {self.time_sport} min
-            Distance: {self.km_run} km
-            Speed:  {self.run_pace()} min/km
-            Calories used:  {self.calories_used()}
-             '''
+        Duration:       {self._time_sport} min
+        Distance:       {self._km_run} km
+        Speed:          {self.run_pace} min/km
+        Calories used:  {self.calories_used}
+         '''
 
-    class Walking:
-        def __init__(self):
-            pass
+class Walking:
+    def __init__(self):
+        pass
 
-        @classmethod
-        def show(cls):
-            return Sport.myvar
-
-        def __str__(self):
-            pass
+    def __str__(self):
+        pass

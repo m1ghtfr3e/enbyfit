@@ -1,5 +1,5 @@
 import exceptions
-
+from sports import Running
 
 class Body:
 
@@ -7,17 +7,17 @@ class Body:
         Body Class.
 
     :param age: Age of the Person in years
-    :type age: int
+    :type age: int, private
     :param height: Height of the Person in cm
-    :type height:  float
+    :type height:  float, private
     :param weight: Weight of the Person in kg
-    :type weight:  float
+    :type weight:  float, private
     :param hormonal_sex: Hormonal Sex of the Person
-    :type hormonal_sex: string
+    :type hormonal_sex: string, private
     :param waist: Waist size of the Person in cm
-    :type waist: float
+    :type waist: float, private
     :param hip: Hip size of the Person in cm
-    :type hip: float
+    :type hip: float, private
     '''
 
     def __init__(self, age, height, weight,
@@ -25,6 +25,7 @@ class Body:
                     waist=None,
                     hip=None,
                 ):
+        super().__init__()
 
         self._age = age
         self._height = height
@@ -154,6 +155,22 @@ class Body:
         except:
             pass
 
+    def asdict(self):
+        return {
+            'age' : self._age,
+            'height' : self._height,
+            'weight' : self._weight,
+            'hormonal_sex' : self._hormonal_sex,
+            'waist' : self._waist,
+            'hip' : self._hip,
+            'bmi' : self.bmi,
+            'ponderal' : self.ponderal_index,
+            'broca' : self.broca_index,
+            'metabolic' : self.metabolic_rate,
+            'hbe' : self.harris_benedict_equation,
+            'w2h' : self.waist2hip_ratio,
+        }
+
     def __repr__(self):
         represent = f'''Body(
             _height={self._height},
@@ -205,22 +222,25 @@ class Person:
     :type obj: class
     '''
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name):
         '''
             Constructor of Persons class
 
         Accepting **kwargs as optional parameter,
         classes are passed to represent on overview
         of the Person and its related objects.
+
+        :param name: Name of the Person
+        :type name: string, private
+        :param id: Id of the Person,
+            each person will recieve
+            a unique id number
         '''
         self._name = name
+        self.__id = None
 
-        self.__obj_names = []
-        self.__obj = []
-
-        for obj_n, obj in kwargs.items():
-            self.__obj_names.append(obj_n)
-            self.__obj.append(obj)
+    def asdict(self):
+        return {'name' : self._name}
 
     def __repr__(self):
         return f'Person(_name={self._name}, __obj_names={self.__obj_names})'
@@ -231,25 +251,17 @@ class Person:
             and passed objects.
         '''
 
-        represent = f'Overview of {self._name}\n\n'
-        for i in range(len(self.__obj)):
-            represent += f'''
-            _____ {self.__obj_names[i]} ____
-            {self.__obj[i]}
-            '''
-
-        return represent
+        return f'\tOverview of {self._name}'
 
 
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
-    from sports import Sport
 
     b = Body(21, 165, 48)
-    s = Sport.Running(b, 11, 60)
-    p = Person('borrito', body=b, sport=s)
+    s = Running(b, 11, 60)
+    p = Person('borrito')
 
-    print(p.__repr__())
-    print(p)
+    overview = p.__str__() + b.__str__() + s.__str__()
+    print(overview)
