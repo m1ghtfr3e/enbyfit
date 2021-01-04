@@ -1,2 +1,0 @@
-##fitpy
-Python Package
