@@ -22,11 +22,11 @@ class Running:
         Running class
     :param body: Instance of an object which has
                      needed parameters
-    :type body: class: Body, optional, protected
+    :type body: class: Body, optional, private
     :param km_run: The distance which was run in km
-    :type km_run: float, optional, private
+    :type km_run: float, optional, protected
     :param time_sport: The duration of the activity in minutes
-    :type time_sport: int, optional , private
+    :type time_sport: int, optional , protected
     '''
     def __init__(self, body=None, km_run=0.0, time_sport=0):
         self.__body = body

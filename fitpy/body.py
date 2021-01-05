@@ -1,5 +1,4 @@
 from . import exceptions
-from .sports import Running
 
 class Body:
 
@@ -7,17 +6,17 @@ class Body:
         Body Class.
 
     :param age: Age of the Person in years
-    :type age: int, private
+    :type age: int, protected
     :param height: Height of the Person in cm
-    :type height:  float, private
+    :type height:  float, protected
     :param weight: Weight of the Person in kg
-    :type weight:  float, private
+    :type weight:  float, protected
     :param hormonal_sex: Hormonal Sex of the Person
-    :type hormonal_sex: string, private
+    :type hormonal_sex: string, protected
     :param waist: Waist size of the Person in cm
-    :type waist: float, private
+    :type waist: float, protected
     :param hip: Hip size of the Person in cm
-    :type hip: float, private
+    :type hip: float, protected
     '''
 
     def __init__(self, age, height, weight,
@@ -205,56 +204,6 @@ class Body:
         return represent
 
 
-class Person:
-
-    '''
-        Person class.
-
-    The Person class is representing
-    an User and related objects like
-    Body, Sport, etc.
-
-    :param name: Name of the Person
-    :type name:  string
-    :param obj_names: Name of the object given
-    :type obj_names: string
-    :param obj: Objects passed
-    :type obj: class
-    '''
-
-    def __init__(self, name):
-        '''
-            Constructor of Persons class
-
-        Accepting **kwargs as optional parameter,
-        classes are passed to represent on overview
-        of the Person and its related objects.
-
-        :param name: Name of the Person
-        :type name: string, private
-        :param id: Id of the Person,
-            each person will recieve
-            a unique id number
-        '''
-        self._name = name.capitalize()
-        self.__id = None
-
-    def asdict(self):
-        return {'name' : self._name}
-
-    def __repr__(self):
-        return f'Person(_name={self._name})'
-
-    def __str__(self):
-        '''
-            Representation of Person
-            and passed objects.
-        '''
-
-        return f'''\n\t
-            Overview of {self._name}
-            ==========================
-            '''
 
 
 
@@ -262,15 +211,3 @@ if __name__ == '__main__':
     import doctest
 
     doctest.testmod()
-
-    p = Person('testperson')
-    b = Body(32, 174, 76, hormonal_sex='female')
-    s = Running(b, 11, 60)
-
-
-    d = p.asdict() | b.asdict() | s.asdict()
-
-    overview = p.__str__() + b.__str__() + s.__str__()
-
-    print(overview)
-    print(d)
