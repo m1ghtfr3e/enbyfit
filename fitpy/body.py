@@ -1,5 +1,4 @@
-from . import exceptions
-
+import exceptions
 class Body:
 
     '''
