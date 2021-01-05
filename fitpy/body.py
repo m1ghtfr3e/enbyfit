@@ -1,4 +1,19 @@
+'''
+    Body module.
+
+Defines a Body object for the
+Person's object in fitpy.
+Person and Body are defined
+independently, but can be
+defined together.
+Both objects can also be added
+and/or use the objects defined
+in sports.py .
+'''
+
 import exceptions
+
+
 class Body:
 
     '''
@@ -134,8 +149,13 @@ class Body:
                         + (1.8 * self._height) \
                         - (4.7 * self._age))
 
-        except AttributeError:
-            raise exceptions.HormonalSexNotDefined
+            else:
+                return 'Raise Error'
+
+        except AttributeError as no_hormsex:
+            raise exceptions.HormonalSexNotDefined(no_hormsex) from no_hormsex
+        else:
+            pass
 
     @property
     def waist2hip_ratio(self):
@@ -149,25 +169,44 @@ class Body:
             return self._waist / self._hip
 
         except AttributeError:
-            raise exceptions.WaistOrHipNotDefined
-        except:
+            pass#raise exceptions.WaistOrHipNotDefined
+        except TypeError:
+            pass#raise exceptions.WaistOrHipNotDefined
+        else:
             pass
 
     def asdict(self):
-        return {
-            'age' : self._age,
-            'height' : self._height,
-            'weight' : self._weight,
-            'hormonal_sex' : self._hormonal_sex,
-            'waist' : self._waist,
-            'hip' : self._hip,
-            'bmi' : self.bmi,
-            'ponderal' : self.ponderal_index,
-            'broca' : self.broca_index,
-            'metabolic' : self.metabolic_rate,
-            'hbe' : self.harris_benedict_equation,
-            'w2h' : self.waist2hip_ratio,
-        }
+        '''
+            As dict Module
+
+        Get all param as dict.
+
+        :return: Dicitonary of all attributes
+            of :class:
+        :rtype: dict
+        '''
+        try:
+            param_dict = {
+                'age' : self._age,
+                'height' : self._height,
+                'weight' : self._weight,
+                'hormonal_sex' : self._hormonal_sex,
+                'waist' : self._waist,
+                'hip' : self._hip,
+                'bmi' : self.bmi,
+                'ponderal' : self.ponderal_index,
+                'broca' : self.broca_index,
+                'metabolic' : self.metabolic_rate,
+                'hbe' : self.harris_benedict_equation,
+                'w2h' : self.waist2hip_ratio,
+            }
+
+        except AttributeError:
+            pass#raise exceptions.BodyParamIsNotExisting
+        else:
+            pass
+
+        return param_dict
 
     def __repr__(self):
         represent = f'''Body(

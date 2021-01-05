@@ -7,6 +7,9 @@
 
 
 class HormonalSexNotDefined(Exception):
+    ''' Raised if the Hormonal Sex
+        was not defined before calling.
+    '''
     def __init__(self):
         Exception.__init__(
             self,
@@ -14,8 +17,23 @@ class HormonalSexNotDefined(Exception):
         )
 
 class WaistOrHipNotDefined(Exception):
+    ''' Raised if either the size
+        of the waist or the hips was
+        not defined before calling.
+    '''
     def __init__(self):
         Exception.__init__(
             self,
             'The Waist and Hip size need to be defined for this quation.'
+        )
+
+
+class BodyParamIsNotExisting(Exception):
+    ''' Raised if one param
+        is not existing
+    '''
+    def __init__(self):
+        Exception.__init__(
+            self,
+            'Some params are missing.'
         )

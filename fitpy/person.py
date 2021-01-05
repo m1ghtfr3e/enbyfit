@@ -1,3 +1,10 @@
+'''
+    Person module
+
+Defines a Person object.
+'''
+
+
 class Person:
 
     '''
@@ -33,6 +40,15 @@ class Person:
         self.__id = None
 
     def asdict(self):
+        '''
+            As dict Module
+
+        Get all param as dict.
+
+        :return: Dicitonary of all attributes
+            of :class:
+        :rtype: dict
+        '''
         return {'name' : self._name}
 
     def __repr__(self):

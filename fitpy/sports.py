@@ -1,4 +1,3 @@
-# sports.py
 '''
     sports Module
 
@@ -52,6 +51,15 @@ class Running:
         return float('%.2f' % pace)
 
     def asdict(self):
+        '''
+            As dict Module
+
+        Get all param as dict.
+
+        :return: Dicitonary of all attributes
+            of :class:
+        :rtype: dict
+        '''
         return {'km_run' : self._km_run,
                 'time_sport' : self._time_sport,
                 'used_calories' : self.calories_used,
