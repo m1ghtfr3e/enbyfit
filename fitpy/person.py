@@ -4,6 +4,7 @@
 Defines a Person object.
 '''
 
+from uuid import uuid4
 
 class Person:
 
@@ -35,9 +36,13 @@ class Person:
         :param id: Id of the Person,
             each person will recieve
             a unique id number
+        :type id: str
         '''
         self._name = name.capitalize()
-        self.__id = None
+        self._id = None
+
+    def create_id(self):
+        self._id = str(uuid4())
 
     def asdict(self):
         '''
@@ -55,12 +60,11 @@ class Person:
         return f'Person(_name={self._name})'
 
     def __str__(self):
-        '''
-            Representation of Person
-            and passed objects.
-        '''
-
         return f'''\n\t
             Overview of {self._name}
             ==========================
             '''
+
+if __name__ == '__main__':
+    p = Person('bolo')
+    print(p.create_id())
