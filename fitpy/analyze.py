@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from pathlib import Path
 
 from person import Person
 from body import Body
@@ -15,16 +16,35 @@ class Saver:
     fitpy.
     '''
 
-    path = f'{os.path.expanduser('~')/fitpy}'
+    root_dir = f'{Path.home()}/.fitpy'
 
-    def __init__(self, save_load, mode):
-        self.obj = save_load
-        self.mode = mode
-
-        self.__file = f'{self.obj.__id}.csv'
-
-    def __enter__(self):
+    def __init__(self,):
         pass
 
-    def __exit__(self, type, value, traceback):
-        pass
+    @classmethod
+    def change_rootdir(cls, path):
+        '''
+            Change Root Directory
+
+        If user wants to specify own
+        path.
+        '''
+        cls.root_dir = path
+
+
+    def check_path(self):
+        '''
+            Checks if path is
+            existing.
+        '''
+        if os.path.exists(self.root_dir):
+            return True
+        else:
+            os.mkdir(self.root_dir)
+            return '[+] Created directory'
+
+
+if __name__ == '__main__':
+    p = Person('manon')
+    s = Saver()
+    s.check_path()

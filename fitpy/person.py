@@ -39,10 +39,6 @@ class Person:
         :type id: str
         '''
         self._name = name.capitalize()
-        self._id = None
-
-    def create_id(self):
-        self._id = str(uuid4())
 
     def asdict(self):
         '''

@@ -11,7 +11,7 @@ and/or use the objects defined
 in sports.py .
 '''
 
-from . import exceptions
+import exceptions
 
 
 class Body:
@@ -174,6 +174,19 @@ class Body:
             pass#raise exceptions.WaistOrHipNotDefined
         else:
             pass
+
+# Add informations!
+    @property
+    def max_heartrate_moderate(self):
+        ''' Age predicted Maximum
+            Heart Rate
+
+        (BPM)
+
+        :return: The max Heart Rate
+        :rtype: int
+        '''
+        return 220 - self._age
 
     def asdict(self):
         '''
