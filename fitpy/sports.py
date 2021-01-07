@@ -11,11 +11,6 @@ without specific attr.
 More help is provided in each class.
 '''
 
-from datetime import datetime
-
-TIMESTAMP = datetime.now().strftime('%Y/%m/%w %H:%M, %W')
-
-
 class Running:
     '''
         Running class

@@ -11,7 +11,7 @@ and/or use the objects defined
 in sports.py .
 '''
 
-import exceptions
+from . import exceptions
 
 
 class Body:

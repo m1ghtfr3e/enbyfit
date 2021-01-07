@@ -4,8 +4,6 @@
 Defines a Person object.
 '''
 
-from uuid import uuid4
-
 class Person:
 
     '''
@@ -62,5 +60,4 @@ class Person:
             '''
 
 if __name__ == '__main__':
-    p = Person('bolo')
-    print(p.create_id())
+    pass
