@@ -16,3 +16,6 @@ from .body import Body
 from .sports import Running
 from . import exceptions
 from .helper import MakeFrame, PrepareFile
+
+
+__all__ = [Person, Body, Running, exceptions, MakeFrame, PrepareFile]

@@ -62,7 +62,7 @@ class PrepareFile:
         return f'[+] Filename changed to {name}'
 
     @classmethod
-    def make_path(self):
+    def make_path(cls):
         '''
             Creates the Path
 
@@ -70,23 +70,37 @@ class PrepareFile:
             created successfully
         :rtype: string
         '''
-        os.mkdir(self.root_dir)
-        return f'[+] Created directory at: {self.root_dir}'
+        os.mkdir(cls.root_dir)
+        return f'[+] Created directory at: {cls.root_dir}'
 
 
 class FileHandler:
-    def __init__(self, name):
+    def __init__(self, name, mode, to_write=None):
         self._file_name = f'{name}_fitpy.json'
+        self.to_write = to_write
 
-    def __enter__(self):
-        pass
+        self.__file = open(self._file_name, self._mode)
 
-    def __exit__(self, *exec):
-        pass
+        if mode == 'w':
+            self.write_mode()
+        elif mode == 'a':
+            self.append_mode()
+        elif mode == 'r':
+            self.read_mode()
+
+    def write_mode(self):
+        self.__file.write(self.to_write)
+
+    def append_mode(self):
+        self.__file.write(self.to_write)
+
+    def read_mode(self):
+        self.__file.read()
 
 
 
 if __name__ == '__main__':
     p = Person('manon')
-    df = MakeFrame(p.__dict__)
-    print(df)
+
+    with FileHandler('manon', 'w', 'cou cou')as f:
+        f.write()
