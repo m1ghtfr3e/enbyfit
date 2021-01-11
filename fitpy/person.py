@@ -37,6 +37,8 @@ class Person:
         :type id: str
         '''
         self._name = name.capitalize()
+        self.__id = str(hash(self._name))[3:8]
+
 
     def asdict(self):
         '''
@@ -48,7 +50,7 @@ class Person:
             of :class:
         :rtype: dict
         '''
-        return {'name' : self._name}
+        return {'name' : self._name, 'id' : self.__id}
 
     def __repr__(self):
         return f'Person(_name={self._name})'

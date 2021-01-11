@@ -238,13 +238,10 @@ class Body:
         Hormonal Sex:       {self._hormonal_sex}
 
         BMI:                {self.bmi}
-                            [Normal: 20-25]
 
-        Ponderal Index:     {self.ponderal_index}
-                            [Normal: 11-14]
+        Ponderal Index:     {self.ponderal_index} kg/m³
 
         Broca Index:        {self.broca_index}
-                            [Normal: 90-110]
 
         Metabolic Rate:     {self.metabolic_rate} kcal
 
