@@ -1,6 +1,8 @@
 '''
     Helper Module for fitpy
 
+:class: FitUser - db Model
+:class: Database - db operations
 '''
 
 import sqlalchemy as db
@@ -17,12 +19,21 @@ Base = declarative_base()
 
 
 class FitUser(Base):
+    '''
+        Model of User
+    Model class of the User
+    '''
     __tablename__ = 'fitpyuser'
     id = Column(Integer, primary_key=True)
     dataset = Column(JSON, nullable=False)
 
 
 class Database:
+    '''
+        Database of enbyfit
+    Enables us to communicate
+    with our User Database.
+    '''
     engine = db.create_engine('sqlite:///fitpy.db')
     session = sessionmaker(bind=engine)
 

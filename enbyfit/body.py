@@ -11,7 +11,7 @@ and/or use the objects defined
 in sports.py .
 '''
 
-from . import exceptions
+# from . import exceptions
 
 
 class Body:
@@ -169,9 +169,9 @@ class Body:
             return self._waist / self._hip
 
         except AttributeError:
-            pass#raise exceptions.WaistOrHipNotDefined
+            pass
         except TypeError:
-            pass#raise exceptions.WaistOrHipNotDefined
+            pass
         else:
             pass
 

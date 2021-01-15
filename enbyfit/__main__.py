@@ -1,3 +1,34 @@
+'''
+    Text-based User Interface
+
+This script is using npyscreen
+to build a TUI for enbyfit.
+After installing,
+you can start this application
+with:
+    " python3 -m enbyfit "
+        or
+    " enbyfit-tui "
+
+:class: EnbyfitApp
+    This is the Main,
+    managing the different
+    screens.
+
+:class: MainTui
+    This is the Main Menu.
+
+:class: QuickTui
+    This is the Screen
+    for a quick overview.
+    Nothing will be stored.
+    User can just pass
+    informations, and can
+    after see a basic
+    overview.
+'''
+
+
 import npyscreen
 from . import Body, Person, Running, Database
 
@@ -7,6 +38,9 @@ GENERAL_INFO = ['Name', 'Age', 'Height', 'Weight',
 
 
 class MainTui(npyscreen.ActionFormV2):
+    ''' Main Screen
+        (acts as Main Menu)
+    '''
 
     def create(self):
         self.add(npyscreen.TitleFixedText,
@@ -30,6 +64,7 @@ class MainTui(npyscreen.ActionFormV2):
         self.parentApp.switchForm(None)
 
 class QuickTui(npyscreen.ActionFormV2):
+    ''' Screen of Quick Option '''
 
     def create(self):
         self.add(npyscreen.TitleText, name='Get a quick overview')
@@ -56,11 +91,16 @@ class QuickTui(npyscreen.ActionFormV2):
         self.parentApp.switchFormPrevious()
 
 class EnbyfitApp(npyscreen.NPSAppManaged):
+    ''' Main App '''
     def onStart(self):
         self.addForm('MAIN', MainTui, name='Enbyfit - Terminal App')
         self.addForm('Quick', QuickTui)
 
 
+def main():
+    npyscreen.wrapper(EnbyfitApp().run())
+
+
 if __name__ == '__main__':
 
-    npyscreen.wrapper(EnbyfitApp().run())
+    main()

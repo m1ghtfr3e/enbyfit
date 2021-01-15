@@ -30,14 +30,27 @@ class Running:
     @property
     def calories_used(self):
         '''
-        # Add Informations
+            Method calculates
+            used calories
+        This module is calculating
+        the used calories during running,
+        based on the body's weight of the
+        Person.
+
+        :return: Used Calories
+        :rtype: float
         '''
         return self._km_run * self.__body._weight * 0.9
 
     @property
     def run_pace(self):
         '''
-        # Add Informations
+            Method calculates
+            Run Pace
+
+        :return: Run Pace in
+            minutes per kilometer
+        :rtype: float
         '''
         tmp = self._time_sport / self._km_run
         t = tmp - int(tmp)
