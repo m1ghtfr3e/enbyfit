@@ -54,7 +54,7 @@ class Database:
 
     def make_query(self, name):
         data = []
-        for item in session.query(FitUser).all():
+        for item in self.session.query(FitUser).all():
             if name in item:
                 data.append(item)
         return data
