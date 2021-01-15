@@ -153,7 +153,7 @@ class Body:
                 return 'Raise Error'
 
         except AttributeError as no_hormsex:
-            raise exceptions.HormonalSexNotDefined(no_hormsex) from no_hormsex
+            pass
         else:
             pass
 
@@ -215,7 +215,7 @@ class Body:
             }
 
         except AttributeError:
-            pass#raise exceptions.BodyParamIsNotExisting
+            pass
         else:
             pass
 
