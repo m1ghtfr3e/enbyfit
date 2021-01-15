@@ -1,4 +1,12 @@
+astroid==2.4.2
+-e git+git@github.com:m1ghtfr3e/fitpy.git@96b749fbfbb948dc18bab76d83bbf88ecbd15552#egg=enbyfit
+isort==5.7.0
+lazy-object-proxy==1.4.3
+mccabe==0.6.1
 npyscreen==4.10.5
+pylint==2.6.0
 six==1.15.0
 SQLAlchemy==1.3.22
 SQLAlchemy-Utils==0.36.8
+toml==0.10.2
+wrapt==1.12.1

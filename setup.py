@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='enbyfit',
-    version='0.0.1.dev1',
+    version='0.0.1.dev2',
     author='m1ghtfr3e',
     description='Fitness and Health',
     url='https://github.com/m1ghtfr3e/enbyfit',
@@ -23,5 +23,11 @@ setuptools.setup(
         'Natural Language :: English',
         'Topic :: Utilities'
         ],
+    entry_points={
+        'console_scripts':[
+            'enbyfit-tui=enbyfit.__main__:main'
+            ]
+        },
+    include_package_data=True,
     python_requires='>=3.9',
     )
