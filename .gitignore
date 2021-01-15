@@ -3,13 +3,21 @@ __pycache__/
 *.py[cod]
 
 # Pip Packaging
-fitpy.egg-info/
+enbyfit.egg-info/
+dist/
+build/
 
 # Sphinx documentation
-docs/_build/
-
+docs/_build
+docs/conf.py
+docs/index.rst
+docs/make.bat
+docs/Makefile
+docs/_static
+_
 # Environments
 venv
 
-# Tests
-tests
+# Database
+**.db
+

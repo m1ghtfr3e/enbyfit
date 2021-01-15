@@ -27,7 +27,7 @@ class FitUser(Base):
     id = Column(Integer, primary_key=True)
     dataset = Column(JSON, nullable=False)
 
-
+# Edit Database !
 class Database:
     '''
         Database of enbyfit
