@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>enbyfit package &#8212; enbyfit 0.0.1.dev2 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="enbyfit-package">
+<h1>enbyfit package<a class="headerlink" href="#enbyfit-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="enbyfit-body-module">
+<h2>enbyfit.body module<a class="headerlink" href="#enbyfit-body-module" title="Permalink to this headline">¶</a></h2>
+<p>Defines a Body object for the
+Person’s object in fitpy.
+Person and Body are defined
+independently, but can be
+defined together.
+Both objects can also be added
+and/or use the objects defined
+in sports.py .</p>
+<dl class="py class">
+<dt id="enbyfit.body.Body">
+<em class="property">class </em><code class="sig-prename descclassname">enbyfit.body.</code><code class="sig-name descname">Body</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">age</span></em>, <em class="sig-param"><span class="n">height</span></em>, <em class="sig-param"><span class="n">weight</span></em>, <em class="sig-param"><span class="n">hormonal_sex</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">waist</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">hip</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.body.Body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<blockquote>
+<div><p>Body Class.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>age</strong> (<em>int</em><em>, </em><em>protected</em>) – Age of the Person in years</p></li>
+<li><p><strong>height</strong> (<em>float</em><em>, </em><em>protected</em>) – Height of the Person in cm</p></li>
+<li><p><strong>weight</strong> (<em>float</em><em>, </em><em>protected</em>) – Weight of the Person in kg</p></li>
+<li><p><strong>hormonal_sex</strong> (<em>string</em><em>, </em><em>protected</em>) – Hormonal Sex of the Person</p></li>
+<li><p><strong>waist</strong> (<em>float</em><em>, </em><em>protected</em>) – Waist size of the Person in cm</p></li>
+<li><p><strong>hip</strong> (<em>float</em><em>, </em><em>protected</em>) – Hip size of the Person in cm</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="enbyfit.body.Body.asdict">
+<code class="sig-name descname">asdict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.body.Body.asdict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>As dict Module</p>
+</div></blockquote>
+<p>Get all param as dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dicitonary of all attributes
+of :class:</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.bmi">
+<em class="property">property </em><code class="sig-name descname">bmi</code><a class="headerlink" href="#enbyfit.body.Body.bmi" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the BMI.</p>
+</div></blockquote>
+<p>The bmi is calculated with
+the weight in kg divided by
+the square ofthe height
+in meters;
+In general the Ponderal Index
+is more expressive.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the Body-Mass-Index</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Body</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span><span class="o">.</span><span class="n">bmi</span>
+<span class="go">55.6</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.broca_index">
+<em class="property">property </em><code class="sig-name descname">broca_index</code><a class="headerlink" href="#enbyfit.body.Body.broca_index" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get Broca Index</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the Broca Index</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.harris_benedict_equation">
+<em class="property">property </em><code class="sig-name descname">harris_benedict_equation</code><a class="headerlink" href="#enbyfit.body.Body.harris_benedict_equation" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the BMR based on the
+Harris-Benedict equation</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Hormonal Female:</dt><dd><dl class="simple">
+<dt>BMR = 655 + (9.6 X weight in kilos)</dt><dd><ul class="simple">
+<li><p>(1.8 X height in cm) – (4.7 x age in years)</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Hormonal Male:</dt><dd><dl class="simple">
+<dt>BMR = 66 + (13.7 x weight in kilos)</dt><dd><ul class="simple">
+<li><p>(5 x height in cm) – (6.8 x age in years)</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the Daily calory need</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>if obj._hormonal_sex is not defined:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">raise</dt>
+<dd class="field-odd"><p>AttributeError</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.max_heartrate_moderate">
+<em class="property">property </em><code class="sig-name descname">max_heartrate_moderate</code><a class="headerlink" href="#enbyfit.body.Body.max_heartrate_moderate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Age predicted Maximum</dt><dd><p>Heart Rate</p>
+</dd>
+</dl>
+<p>(BPM)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The max Heart Rate</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.metabolic_rate">
+<em class="property">property </em><code class="sig-name descname">metabolic_rate</code><a class="headerlink" href="#enbyfit.body.Body.metabolic_rate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the Basal Metabolic Rate</p>
+</div></blockquote>
+<p>The basal metabolic rate is calculated
+with the weight * 24 (hours);
+It is not really expressive, as it is
+igonring body facts which have influence
+on this, like muscle mass.
+It is recommended to use the Harris-
+Benedict Formula instead.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the Metabolic Rate</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Body</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">metabolic_rate</span>
+<span class="go">1200</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.ponderal_index">
+<em class="property">property </em><code class="sig-name descname">ponderal_index</code><a class="headerlink" href="#enbyfit.body.Body.ponderal_index" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the Ponderal Index</p>
+</div></blockquote>
+<p>The ponderal index is calculated
+by the weight in kg divided by
+the height in meters to the
+power of three.</p>
+<p>-&gt; Results between 11 and 14
+are interpreted as normal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the Ponderal Index</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.body.Body.waist2hip_ratio">
+<em class="property">property </em><code class="sig-name descname">waist2hip_ratio</code><a class="headerlink" href="#enbyfit.body.Body.waist2hip_ratio" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the Waist-to-Hip Ratio</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns the W-H-Ratio</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="enbyfit-exceptions-module">
+<h2>enbyfit.exceptions module<a class="headerlink" href="#enbyfit-exceptions-module" title="Permalink to this headline">¶</a></h2>
+<p>1 The Hormonal Sex was not defined but needed for a module / function / …
+2 The Waist and/or Hip size was not define but needed …</p>
+<dl class="py exception">
+<dt id="enbyfit.exceptions.BodyParamIsNotExisting">
+<em class="property">exception </em><code class="sig-prename descclassname">enbyfit.exceptions.</code><code class="sig-name descname">BodyParamIsNotExisting</code><a class="headerlink" href="#enbyfit.exceptions.BodyParamIsNotExisting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised if one param
+is not existing</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="enbyfit.exceptions.HormonalSexNotDefined">
+<em class="property">exception </em><code class="sig-prename descclassname">enbyfit.exceptions.</code><code class="sig-name descname">HormonalSexNotDefined</code><a class="headerlink" href="#enbyfit.exceptions.HormonalSexNotDefined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised if the Hormonal Sex
+was not defined before calling.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="enbyfit.exceptions.WaistOrHipNotDefined">
+<em class="property">exception </em><code class="sig-prename descclassname">enbyfit.exceptions.</code><code class="sig-name descname">WaistOrHipNotDefined</code><a class="headerlink" href="#enbyfit.exceptions.WaistOrHipNotDefined" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised if either the size
+of the waist or the hips was
+not defined before calling.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-enbyfit.helper">
+<span id="enbyfit-helper-module"></span><h2>enbyfit.helper module<a class="headerlink" href="#module-enbyfit.helper" title="Permalink to this headline">¶</a></h2>
+<p>Helper Module for fitpy</p>
+<dl class="py class">
+<dt id="enbyfit.helper.Database">
+<em class="property">class </em><code class="sig-prename descclassname">enbyfit.helper.</code><code class="sig-name descname">Database</code><a class="headerlink" href="#enbyfit.helper.Database" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="enbyfit.helper.Database.engine">
+<code class="sig-name descname">engine</code><em class="property"> = Engine(sqlite:///fitpy.db)</em><a class="headerlink" href="#enbyfit.helper.Database.engine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.helper.Database.make_database">
+<code class="sig-name descname">make_database</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.helper.Database.make_database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.helper.Database.make_entry">
+<code class="sig-name descname">make_entry</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.helper.Database.make_entry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.helper.Database.make_query">
+<code class="sig-name descname">make_query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.helper.Database.make_query" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="enbyfit.helper.Database.session">
+<code class="sig-name descname">session</code><em class="property"> = sessionmaker(class_='Session', bind=Engine(sqlite:///fitpy.db), autoflush=True, autocommit=False, expire_on_commit=True)</em><a class="headerlink" href="#enbyfit.helper.Database.session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="enbyfit.helper.FitUser">
+<em class="property">class </em><code class="sig-prename descclassname">enbyfit.helper.</code><code class="sig-name descname">FitUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.helper.FitUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sqlalchemy.ext.declarative.api.Base</span></code></p>
+<dl class="py attribute">
+<dt id="enbyfit.helper.FitUser.dataset">
+<code class="sig-name descname">dataset</code><a class="headerlink" href="#enbyfit.helper.FitUser.dataset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="enbyfit.helper.FitUser.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#enbyfit.helper.FitUser.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="enbyfit-person-module">
+<h2>enbyfit.person module<a class="headerlink" href="#enbyfit-person-module" title="Permalink to this headline">¶</a></h2>
+<p>Defines a Person object.</p>
+<dl class="py class">
+<dt id="enbyfit.person.Person">
+<em class="property">class </em><code class="sig-prename descclassname">enbyfit.person.</code><code class="sig-name descname">Person</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.person.Person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<blockquote>
+<div><p>Person class.</p>
+</div></blockquote>
+<p>The Person class is representing
+an User and related objects like
+Body, Sport, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em>) – Name of the Person</p></li>
+<li><p><strong>obj_names</strong> (<em>string</em>) – Name of the object given</p></li>
+<li><p><strong>obj</strong> (<em>class</em>) – Objects passed</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="enbyfit.person.Person.asdict">
+<code class="sig-name descname">asdict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.person.Person.asdict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>As dict Module</p>
+</div></blockquote>
+<p>Get all param as dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dicitonary of all attributes
+of :class:</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="enbyfit-sports-module">
+<h2>enbyfit.sports module<a class="headerlink" href="#enbyfit-sports-module" title="Permalink to this headline">¶</a></h2>
+<p>Containing different sports and activity
+classes which provide modules.
+Most classes need the body object as
+specific attributes are often needed,
+they are set as optional parameters as
+some modules or attributes can be used
+without specific attr.
+More help is provided in each class.</p>
+<dl class="py class">
+<dt id="enbyfit.sports.Running">
+<em class="property">class </em><code class="sig-prename descclassname">enbyfit.sports.</code><code class="sig-name descname">Running</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">body</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">km_run</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">time_sport</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.sports.Running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<blockquote>
+<div><p>Running class</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>body</strong> (<em>class: Body</em><em>, </em><em>optional</em><em>, </em><em>private</em>) – Instance of an object which has
+needed parameters</p></li>
+<li><p><strong>km_run</strong> (<em>float</em><em>, </em><em>optional</em><em>, </em><em>protected</em>) – The distance which was run in km</p></li>
+<li><p><strong>time_sport</strong> (<em>int</em><em>, </em><em>optional</em><em> , </em><em>protected</em>) – The duration of the activity in minutes</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="enbyfit.sports.Running.asdict">
+<code class="sig-name descname">asdict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.sports.Running.asdict" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>As dict Module</p>
+</div></blockquote>
+<p>Get all param as dict.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dicitonary of all attributes
+of :class:</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.sports.Running.calories_used">
+<em class="property">property </em><code class="sig-name descname">calories_used</code><a class="headerlink" href="#enbyfit.sports.Running.calories_used" title="Permalink to this definition">¶</a></dt>
+<dd><p># Add Informations</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="enbyfit.sports.Running.run_pace">
+<em class="property">property </em><code class="sig-name descname">run_pace</code><a class="headerlink" href="#enbyfit.sports.Running.run_pace" title="Permalink to this definition">¶</a></dt>
+<dd><p># Add Informations</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<p>All modules are imported here
+so each :class: can be used
+independently.</p>
+<dl class="py function">
+<dt id="enbyfit.main">
+<code class="sig-prename descclassname">enbyfit.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#enbyfit.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entry Point to
+call __main__</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">enbyfit</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, m1ghtfr3e.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/source/enbyfit.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
