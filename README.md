@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/m1ghtfr3e/enbyfit.svg?branch=main)](https://travis-ci.com/m1ghtfr3e/enbyfit)
+
 Enbyfit: Fitness and Health Modules for Humans
 ============================================
 
