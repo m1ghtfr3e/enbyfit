@@ -7,8 +7,7 @@
 
 import datetime
 import sqlalchemy as db
-from sqlalchemy import create_engine, Column, Integer, JSON, DateTime
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists
 from sqlalchemy.orm import sessionmaker
 
@@ -16,19 +15,9 @@ from enbyfit import Person
 from enbyfit import Body
 from enbyfit import Running
 
+from models import FitUser, BodyProperties, AcitivtyDB
 
-Base = declarative_base()
 
-
-class FitUser(Base):
-    '''
-        Model of User
-    Model class of the User
-    '''
-    __tablename__ = 'fitpyuser'
-    id = Column(Integer, primary_key=True)
-    date = Column(DateTime)
-    dataset = Column(JSON, nullable=False)
 
 # Edit Database !
 class Database:
@@ -68,7 +57,7 @@ class Database:
         Make a query from Database.
         '''
         data = []
-        for item in self.Session.query(FitUser).all():
+        for item in self.Session.query(FitUser).filter_by(name).all():
             print(item.dataset)
             if name in item.dataset.items():
                 data.append(item)
@@ -77,12 +66,4 @@ class Database:
 
 
 if __name__ == '__main__':
-    d = Database()
-
-    ex1 = {'1': 'a'}
-    ex2 = {'name': 'manon'}
-
-    d.make_entry(ex1)
-    d.make_entry(ex2)
-
-    print(d.make_query('manon'))
+    ...
