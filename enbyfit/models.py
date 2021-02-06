@@ -1,3 +1,11 @@
+'''
+    Models for the Enbyfit Database
+
+There are three different Base Models which
+represent eacht Table in our Databse.
+'''
+
+
 from sqlalchemy import Column, Integer, JSON, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -14,8 +22,8 @@ class UserDB(Base):
     date = Column(DateTime)
     dataset = Column(JSON, nullable=False)
 
-    def __repr__(self) -> None:
-        return f'{self.__class__.__name__}: ID {self.id}'
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}, {self.__tablename__}'
 
 
 class BodyDB(Base):
@@ -27,8 +35,8 @@ class BodyDB(Base):
     date = Column(DateTime)
     data = Column(JSON, nullable=False)
 
-    def __repr__(self) -> None:
-        return f'{self.__class__.__name__}: ID {self.id}'
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}, {self.__tablename__}'
 
 
 class ActivityDB(Base):
@@ -40,5 +48,5 @@ class ActivityDB(Base):
     date = Column(DateTime)
     data = Column(JSON, nullable=False)
 
-    def __repr__(self) -> None:
-        return f'{self.__class__.__name__}: ID {self.id}'
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}, {self.__tablename__}'

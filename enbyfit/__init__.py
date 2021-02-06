@@ -10,7 +10,7 @@ independently.
 __author__ = 'm1ghtfr3e'
 __version__ = '0.0.1.dev1'
 
-from .person import Person
+from .user import User
 from .body import Body
 from .sports import Running
 from . import exceptions

@@ -235,14 +235,10 @@ class Body:
 
         return param_dict
 
-    def __repr__(self):
-        represent = f'''Body(
-            _height={self._height},
-            _weight={self._weight},
-            )'''
-        return represent
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}, {self.__dict__}'
 
-    def __str__(self):
+    def __str__(self) -> str:
 
         represent = f'''\n
         Age:                {self._age}

@@ -1,7 +1,7 @@
 '''
     Person module
 
-Defines a Person object.
+Defines an User object.
 
 Base of any Dataset.
 A Person has just two
@@ -13,16 +13,16 @@ Methods:
     - Asdict
 '''
 
-class Person:
+class User:
 
     '''
-        Person class.
+        User class.
 
-    The Person class is representing
-    an User and related objects like
+    The User class is representing
+    a Person* and related objects like
     Body, Sport, etc.
 
-    :param name: Name of the Person
+    :param name: Name of the User
     :type name:  string
     :param obj_names: Name of the object given
     :type obj_names: string
@@ -61,10 +61,10 @@ class Person:
         '''
         return {'name' : self._name, 'id' : self.__id}
 
-    def __repr__(self):
-        return f'Person(_name={self._name})'
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}, {self.__dict__}'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'''\n\t
             Overview of {self._name}
             ==========================

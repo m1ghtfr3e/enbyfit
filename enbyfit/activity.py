@@ -1,13 +1,16 @@
 '''
-    sports Module
+    Activity Module
 
 Containing different sports and activity
 classes which provide modules.
+
 Most classes need the body object as
 specific attributes are often needed,
 they are set as optional parameters as
 some modules or attributes can be used
 without specific attr.
+
+
 More help is provided in each class.
 '''
 
@@ -73,15 +76,10 @@ class Running:
                 'used_calories' : self.calories_used,
                 'run_pace': self.run_pace}
 
-    def __repr__(self):
-        represent =  f'''Running(
-            body={self.__body},
-            km_run={self._km_run},
-            time_sport={self._time_sport}
-            )'''
-        return represent
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__}, {self.__dict__}'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'''\n
         Kind of activity:   Running
 

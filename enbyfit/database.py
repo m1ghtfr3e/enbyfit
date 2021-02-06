@@ -11,11 +11,12 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists
 from sqlalchemy.orm import sessionmaker
 
-from enbyfit import Person
-from enbyfit import Body
-from enbyfit import Running
 
-from models import Base, FitUser, BodyProperties, AcitivtyDB
+from user import User
+from body import Body
+from activity import Running
+
+from models import Base, UserDB, BodyDB, ActivityDB
 
 
 
@@ -40,6 +41,18 @@ class Database:
         '''
         Base.metadata.create_all(self.engine)
 
+    @classmethod
+    def change_db_bame(cls, name: str) -> None:
+        '''
+        Change the name of the DataBase
+        '''
+        cls.engine = db.create_engine(name)
+
+    def __repr__(self) -> str:
+        return f'{self.__class__.__name__} -> {self.engine}'
+
+
+    """
     def make_entry(self, data: dict) -> None:
         '''
         Make a (new) Entry in Database.
@@ -62,7 +75,7 @@ class Database:
             if name in item.dataset.items():
                 data.append(item)
         return data
-
+    """
 
 
 if __name__ == '__main__':
