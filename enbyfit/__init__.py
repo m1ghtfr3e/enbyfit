@@ -12,6 +12,6 @@ __version__ = '0.0.1.dev1'
 
 from .user import User
 from .body import Body
-from .sports import Running
+from .activity import Running
 from . import exceptions
-from .helper import Database
+from .database import Database

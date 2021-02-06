@@ -12,11 +12,11 @@ from sqlalchemy_utils import database_exists
 from sqlalchemy.orm import sessionmaker
 
 
-from user import User
-from body import Body
-from activity import Running
+from .user import User
+from .body import Body
+from .activity import Running
 
-from models import Base, UserDB, BodyDB, ActivityDB
+from .models import Base, UserDB, BodyDB, ActivityDB
 
 
 
