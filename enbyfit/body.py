@@ -33,11 +33,14 @@ class Body:
     :type hip: float, protected
     '''
 
-    def __init__(self, age, height, weight,
-                    hormonal_sex=None,
-                    waist=None,
-                    hip=None,
-                ):
+    def __init__(self,
+        age: int,
+        height: float,
+        weight: float,
+        hormonal_sex: str = None,
+        waist: float = None,
+        hip: float = None,
+        ) -> None:
         super().__init__()
 
         self._age = age
