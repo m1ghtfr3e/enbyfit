@@ -2,6 +2,15 @@
     Person module
 
 Defines a Person object.
+
+Base of any Dataset.
+A Person has just two
+Parameters:
+    - Name
+    - A Generated ID
+
+Methods:
+    - Asdict
 '''
 
 class Person:
@@ -21,7 +30,7 @@ class Person:
     :type obj: class
     '''
 
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         '''
             Constructor of Persons class
 
@@ -40,7 +49,7 @@ class Person:
         self.__id = str(hash(self._name))[3:8]
 
 
-    def asdict(self):
+    def asdict(self) -> dict:
         '''
             As dict Module
 

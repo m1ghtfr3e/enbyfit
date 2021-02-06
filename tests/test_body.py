@@ -9,5 +9,4 @@ test_body2 = Body(30, 180, 80, 'female')
 
 class BasicBodyTests(unittest.TestCase):
     def test_bmi(self):
-        bmi1 = test_body1.bmi
-        bmi2 = test_body2.bmi
+        ...

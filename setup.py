@@ -23,11 +23,6 @@ setuptools.setup(
         'Natural Language :: English',
         'Topic :: Utilities'
         ],
-    entry_points={
-        'console_scripts':[
-            'enbyfit-tui=enbyfit.__main__:main'
-            ]
-        },
     include_package_data=True,
     python_requires='>=3.9',
     )

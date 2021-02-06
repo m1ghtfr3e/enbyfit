@@ -58,6 +58,20 @@ class Body:
         in meters;
         In general the Ponderal Index
         is more expressive.
+        The higher the BMI, the higher
+        are risks for certain diseases
+        like cardiovascula disease,
+        high blood pressure,
+        type 2 diabetes,
+        gallstones,
+        breating problems,
+        and certain types of cancers.
+        It may overestimate body fat
+        for athletes and people who
+        have a muscular build and
+        underestimate body fat for
+        older people and those who
+        have lost muscle mass.
 
         :return: Returns the Body-Mass-Index
         :rtype: float
@@ -188,7 +202,7 @@ class Body:
         '''
         return 220 - self._age
 
-    def asdict(self):
+    def asdict(self) -> dict:
         '''
             As dict Module
 
@@ -252,15 +266,7 @@ class Body:
         return represent
 
 
-
-
-
 if __name__ == '__main__':
     import doctest
 
     doctest.testmod()
-
-
-    import fire
-
-    fire.Fire(Body)

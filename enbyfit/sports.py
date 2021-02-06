@@ -58,7 +58,7 @@ class Running:
         pace = int(tmp) + (t - int(t))
         return float('%.2f' % pace)
 
-    def asdict(self):
+    def asdict(self) -> dict:
         '''
             As dict Module
 

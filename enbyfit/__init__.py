@@ -15,11 +15,3 @@ from .body import Body
 from .sports import Running
 from . import exceptions
 from .helper import Database
-
-
-def main():
-    ''' Entry Point to
-        call __main__
-    '''
-    import runpy
-    runpy.run_module(__name__)
