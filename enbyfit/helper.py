@@ -15,7 +15,7 @@ from enbyfit import Person
 from enbyfit import Body
 from enbyfit import Running
 
-from models import FitUser, BodyProperties, AcitivtyDB
+from models import Base, FitUser, BodyProperties, AcitivtyDB
 
 
 
