@@ -41,6 +41,7 @@ class Body:
         waist: float = None,
         hip: float = None,
         ) -> None:
+
         super().__init__()
 
         self._age = age
@@ -55,26 +56,18 @@ class Body:
         '''
             Get the BMI.
 
-        The bmi is calculated with
-        the weight in kg divided by
-        the square ofthe height
-        in meters;
-        In general the Ponderal Index
-        is more expressive.
-        The higher the BMI, the higher
-        are risks for certain diseases
-        like cardiovascula disease,
-        high blood pressure,
-        type 2 diabetes,
-        gallstones,
-        breating problems,
-        and certain types of cancers.
-        It may overestimate body fat
-        for athletes and people who
-        have a muscular build and
-        underestimate body fat for
-        older people and those who
-        have lost muscle mass.
+        The bmi is calculated with the weight in kg
+        divided by the square ofthe height in meters;
+        In general the Ponderal Index is more
+        expressive.
+        The higher the BMI, the higher are risks for
+        certain diseases like cardiovascula disease,
+        high blood pressure, type 2 diabetes, gallstones,
+        breating problems, and certain types of cancers.
+        It may overestimate body fat for athletes and
+        people who have a muscular build and
+        underestimate body fat for older people and
+        those who have lost muscle mass.
 
         :return: Returns the Body-Mass-Index
         :rtype: float
@@ -90,13 +83,12 @@ class Body:
         '''
             Get the Ponderal Index
 
-        The ponderal index is calculated
-        by the weight in kg divided by
-        the height in meters to the
+        The ponderal index is calculated by the weight
+        in kg divided by the height in meters to the
         power of three.
 
         -> Results between 11 and 14
-        are interpreted as normal.
+           are interpreted as normal.
 
         :return: Returns the Ponderal Index
         :rtype: float
@@ -118,13 +110,13 @@ class Body:
         '''
             Get the Basal Metabolic Rate
 
-        The basal metabolic rate is calculated
-        with the weight * 24 (hours);
-        It is not really expressive, as it is
-        igonring body facts which have influence
-        on this, like muscle mass.
-        It is recommended to use the Harris-
-        Benedict Formula instead.
+        The basal metabolic rate is calculated with
+        the weight * 24 (hours).
+        It is not really expressive, as it is igonring
+        body facts which have influence on this,
+        like muscle mass.
+        It is recommended to use the Harris-Benedict-
+        Formula instead.
 
         :return: Returns the Metabolic Rate
         :rtype: int
@@ -179,6 +171,12 @@ class Body:
         '''
             Get the Waist-to-Hip Ratio
 
+        The Waist-to-Hip Ratio can be a marker for
+        cardiovascular diseases. The risk for
+        those diseases is more signalised by  the
+        allocation of fat around the body than by
+        "overweight".
+
         :return: Returns the W-H-Ratio
         :rtype: float
         '''
@@ -192,18 +190,45 @@ class Body:
         else:
             pass
 
+    @property
+    def training_heartrate(self):
+        '''
+            Heart Rate for Training
+
+        The following << Max Heartrate >> is
+        more for people doing frequently sports,
+        whereas this equation should be used
+        if you start doing sports or had
+        diseases before.
+
+        :returns: Heart Rate for Training
+            (in BPM)
+        :rtype: int
+        '''
+        return 180 - self._age
+
 # Add informations!
     @property
-    def max_heartrate_moderate(self):
-        ''' Age predicted Maximum
-            Heart Rate
+    def max_heartrate(self):
+        '''
+         Age predicted Maximum Heart Rate
 
         (BPM)
 
-        :return: The max Heart Rate
+        :returns: The max Heart Rate
         :rtype: int
         '''
         return 220 - self._age
+
+    @property
+    def target_heartrate_zone(self) -> float:
+        '''
+        Getting optimal zone of heartrate
+
+        :return: Heartrate Zone
+        :rtype: float
+        '''
+        return float('%2.f' % (self.max_heartrate * 0.85))
 
     def asdict(self) -> dict:
         '''
@@ -267,5 +292,4 @@ class Body:
 
 if __name__ == '__main__':
     import doctest
-
     doctest.testmod()
