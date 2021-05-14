@@ -213,12 +213,36 @@ class Body:
         '''
          Age predicted Maximum Heart Rate
 
+        Different equations are existing
+        and there is no way of determining
+        which equation suits better or is
+        more precisely for each individual.
+
+        Three different equations can be
+        used here:
+            - The most common equation 
+              (which is getting quite
+               unprecisely for persons
+               aged over 40)
+
+            - A more precise formula for 
+              age 40+ people 
+
+            - A generally more precise
+              formula 
+
         (BPM)
 
         :returns: The max Heart Rate
         :rtype: int
         '''
-        return 220 - self._age
+        # EDIT !
+        if ... == 'common':
+            return 220 - self._age
+        elif self._age >= 40:
+            return 207 - (0.7 * self._age)
+        elif ... == 'general':
+            return 211 - (0.64 * self._age)
 
     @property
     def target_heartrate_zone(self) -> float:

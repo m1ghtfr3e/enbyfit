@@ -19,6 +19,9 @@ from .activity import Running
 from .models import Base, UserDB, BodyDB, ActivityDB
 
 
+ENGINE = db.create_engine('sqlite:///enbyfit.db')
+SESSION = sessionmaker(bind=ENGINE)
+
 
 # Edit Database !
 class Database:
@@ -27,26 +30,17 @@ class Database:
     Enables us to communicate
     with our User Database.
     '''
-    engine = db.create_engine('sqlite:///enbyfit.db')
-    session = sessionmaker(bind=engine)
-    Session = session()
+    Session = SESSION()
 
     def __init__(self) -> None:
-        if not database_exists(self.engine.url):
+        if not database_exists(ENGINE.url):
             self.make_database()
 
     def make_database(self) -> None:
         '''
         Create a database if none exists.
         '''
-        Base.metadata.create_all(self.engine)
-
-    @classmethod
-    def change_db_bame(cls, name: str) -> None:
-        '''
-        Change the name of the DataBase
-        '''
-        cls.engine = db.create_engine(name)
+        Base.metadata.create_all(ENGINE)
 
     def __repr__(self) -> str:
         return f'{self.__class__.__name__} -> {self.engine}'

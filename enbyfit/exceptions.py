@@ -6,6 +6,13 @@
 '''
 
 
+class AppError(Exception):
+    pass
+
+
+class MissingInputError(AppError):
+
+
 class HormonalSexNotDefined(Exception):
     ''' Raised if the Hormonal Sex
         was not defined before calling.
