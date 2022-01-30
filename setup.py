@@ -2,7 +2,7 @@ import os
 import sys
 import setuptools
 
-HERE = os.abspath(os.path.dirname(__file__))
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 sys.path.insert(0, HERE)
 

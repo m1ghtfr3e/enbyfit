@@ -11,10 +11,9 @@ from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists
 from sqlalchemy.orm import sessionmaker
 
-
-from .user import User
-from .body import Body
-from .activity import Running
+from .core.user import User
+from .core.body import Body
+from .core.activity import Running
 
 from .models import Base, UserDB, BodyDB, ActivityDB
 
@@ -45,13 +44,11 @@ class Database:
     def __repr__(self) -> str:
         return f'{self.__class__.__name__} -> {self.engine}'
 
-
-    """
     def make_entry(self, data: dict) -> None:
         '''
         Make a (new) Entry in Database.
         '''
-        new_entry = FitUser()
+        new_entry = UserDB()
         #new_entry.id = data[id]
         new_entry.date = datetime.datetime.now()
         new_entry.dataset = data
@@ -64,13 +61,14 @@ class Database:
         Make a query from Database.
         '''
         data = []
-        for item in self.Session.query(FitUser).filter_by(name).all():
+        for item in self.Session.query(UserDB).filter_by(id=1):
             print(item.dataset)
             if name in item.dataset.items():
                 data.append(item)
         return data
-    """
 
 
 if __name__ == '__main__':
-    ...
+    db = Database()
+    # db.make_entry({1 : 'test'})
+    db.make_query(1)

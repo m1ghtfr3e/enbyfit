@@ -52,7 +52,7 @@ class Body:
         self._hip = hip
 
     @property
-    def bmi(self):
+    def bmi(self) -> float:
         '''
             Get the BMI.
 
@@ -79,7 +79,7 @@ class Body:
         return float('%.1f' % (self._weight / ((self._height/100) ** 2)))
 
     @property
-    def ponderal_index(self):
+    def ponderal_index(self) -> float:
         '''
             Get the Ponderal Index
 
@@ -96,7 +96,7 @@ class Body:
         return float('%.1f' % (self._weight / ((self._height/100) ** 3)))
 
     @property
-    def broca_index(self):
+    def broca_index(self) -> float:
         '''
             Get Broca Index
 
@@ -106,7 +106,7 @@ class Body:
         return float('%.1f' % (self._weight / (self._height - 100) * 100))
 
     @property
-    def metabolic_rate(self):
+    def metabolic_rate(self) -> int:
         '''
             Get the Basal Metabolic Rate
 
@@ -127,7 +127,7 @@ class Body:
         return int(self._weight * 24)
 
     @property
-    def harris_benedict_equation(self):
+    def harris_benedict_equation(self) -> int:
         '''
             Get the BMR based on the
             Harris-Benedict equation
@@ -167,7 +167,7 @@ class Body:
             pass
 
     @property
-    def waist2hip_ratio(self):
+    def waist2hip_ratio(self) -> float:
         '''
             Get the Waist-to-Hip Ratio
 
@@ -191,7 +191,25 @@ class Body:
             pass
 
     @property
-    def training_heartrate(self):
+    def waist2height_ratio(self) -> float:
+        ''' Get the Waist-to-Height Ratio
+        ...
+
+        :return: Returns Waist-to-Height-Ratio
+        :rtype: float
+        '''
+        try:
+            return self._waist / self._height
+
+        except AttributeError:
+            pass
+        except TypeError:
+            pass
+        else:
+            pass
+
+    @property
+    def training_heartrate(self) -> int:
         '''
             Heart Rate for Training
 
@@ -209,7 +227,7 @@ class Body:
 
 # Add informations!
     @property
-    def max_heartrate(self):
+    def max_heartrate(self) -> int:
         '''
          Age predicted Maximum Heart Rate
 
@@ -310,6 +328,8 @@ class Body:
         Harris-Benedict:    {self.harris_benedict_equation} kcal
 
         Waist-to-Hip Ratio: {self.waist2hip_ratio}
+
+        Waist-to-Height-Ratio: {self.waist2height_ratio}
         '''
         return represent
 
